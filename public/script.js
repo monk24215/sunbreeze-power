@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const tierRadios = document.querySelectorAll('#pricing-tiers input[name="tier"]');
   const tierSummaries = {
     '1': '1 Bundle &mdash; $27 plus shipping at checkout.',
-    '2': '2 Bundles &mdash; $24 each, plus $2.49 shipping per bundle.',
-    '3': '3 Bundles &mdash; $24 each, with free shipping.',
+    '2': '2 Bundles &mdash; $24 each, plus $2.49 shipping per bundle, plus a free folding camp grill.',
+    '3': '3 Bundles &mdash; $24 each, free shipping, plus a free folding camp grill with each bundle.',
   };
   tierRadios.forEach((radio) => {
     radio.addEventListener('change', () => {
@@ -26,6 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Reveal the real-photo gallery only once the images actually exist in public/images/ —
+  // keeps the site looking intentional (no broken-image icons) until those files are uploaded.
+  var gallery = document.getElementById('gallery-section');
+  if (gallery) {
+    var probe = new Image();
+    probe.onload = function () { gallery.hidden = false; };
+    probe.src = 'images/fan-product-shot.jpg';
+  }
 
   // TODO: point this at the live ClickBank hoplink/pay link for the selected tier once the
   // products are set up in ClickBank. Each tier (1/2/3 bundles) will likely need its own
