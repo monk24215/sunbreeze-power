@@ -4,7 +4,6 @@
   "description": "SunBreeze — solar fan and solar power bank sales site",
   "main": "server.js",
   "scripts": {
-    "prestart": "node scripts/decode-assets.js",
     "start": "node server.js"
   },
   "dependencies": {
