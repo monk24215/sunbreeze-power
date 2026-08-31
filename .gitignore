@@ -1,5 +1,2 @@
 node_modules/
 .DS_Store
-
-# Real binaries are regenerated from .b64 sidecars at boot (see scripts/decode-assets.js)
-public/ebooks/*.pdf
