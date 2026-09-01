@@ -321,20 +321,61 @@ section { padding: 70px 0; }
   color: var(--text-mute);
 }
 
-/* Photo gallery */
+/* Photo gallery — grouped by story, not just tiled: the fan (studio shot + two real-use
+   shots) reads as one set, and the bonus grill gets its own visually distinct card so it
+   doesn't get mistaken for another fan photo. */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
 }
-@media (min-width: 700px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 700px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "product hammock"
+      "desk    bonus";
+  }
+  .gallery-item-product { grid-area: product; }
+  .gallery-item-hammock { grid-area: hammock; }
+  .gallery-item-desk { grid-area: desk; }
+  .gallery-item-bonus { grid-area: bonus; }
+}
+.gallery-grid figure { margin: 0; }
 .gallery-grid img {
+  display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--bg-card);
+}
+.gallery-grid figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gallery-item-bonus {
+  padding: 10px;
+  border-radius: calc(var(--radius) + 10px);
+  border: 1.5px solid var(--red);
+  background: rgba(232, 52, 42, 0.07);
+}
+.gallery-item-bonus img { border-color: var(--red); }
+.gallery-bonus-tag {
+  flex: none;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: var(--red);
+  padding: 2px 8px;
+  border-radius: 999px;
 }
 
 /* Offer / bundle */
