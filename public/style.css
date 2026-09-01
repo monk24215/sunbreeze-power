@@ -313,6 +313,23 @@ section { padding: 70px 0; }
 }
 .product-card li .chk { color: var(--cyan); flex: none; margin-top: 2px; }
 .product-card.red-theme li .chk { color: var(--red); }
+
+/* Grouping a long spec list into short, labeled clusters reads faster than one flat
+   run of checkmarks &mdash; three items per group is a glance, not a chore. */
+.spec-group { margin-bottom: 18px; }
+.spec-group:last-of-type { margin-bottom: 20px; }
+.spec-group-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cyan-soft);
+  margin-bottom: 10px;
+}
+.product-card.red-theme .spec-group-label { color: var(--red); }
+.spec-group ul { margin-bottom: 0; }
+.spec-group li { margin-bottom: 8px; }
+.spec-group li:last-child { margin-bottom: 0; }
 .product-use {
   margin-top: auto;
   padding-top: 16px;
